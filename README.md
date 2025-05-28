@@ -193,19 +193,17 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 
 ## Step 2: Extracting Fluorescence Intensity Using TrackMate
 
-### Overview
+This step use TrackMate in Fiji to extract fluorescence intensity over time for each neuron from selected z-slice TIFFs. We will use Neuron 0 as example to demonstrate z-stack analysis. 
 
-This step use TrackMate in Fiji to extract fluorescence intensity over time for each neuron from selected z-slice TIFFs. We will use Neuron 0 as example to demonstrate z-slice analysis in the demo dataset. 
+### 1. Find the brightest z-stack in Fiji
 
-### 1. Find the brightest z-slice in Fiji
-
-Go to ‘SampleXXX_stack/’ folder and open a mid-plane TIFF (e.g. DOWC_Z10.tif)
+Go to ‘SampleXXX_stack/’ (e.g. DOWC_demp/DOWC001_stack) folder and open a mid-plane TIFF (e.g. DOWC_Z10.tif)
 
 Adjust brightness/contrast to see cells clear.
 
 Find a strong response time point (e.g. t=42 in demo sample)
 
-Open neighboring z-slices at t=42 and compare fluorescence brightness.
+Open neighboring z-stacks at t=42 and compare fluorescence brightness.
 
 Select the strongest slice to start the analysis
 
@@ -213,7 +211,8 @@ Select the strongest slice to start the analysis
 
 > - Neuron 0, start the analysis on ##_z08.tif
 
-> - Neuron 1, start the analysis on ##_z10.tiff	
+> - Neuron 1, start the analysis on ##_z10.tiff
+![](git_images/image_15.png)
 
 ### 2. Lauch TrackMate for Neuron 0
 
