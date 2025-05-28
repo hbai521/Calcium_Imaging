@@ -1,6 +1,6 @@
 ## Calcium Imaging data analysis on Drosophila larval thermal sensing neurons ##
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Requirements](#requirements)
@@ -20,7 +20,7 @@
   - [Step 8: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
   - [Step 9: Average Calcium Signals Across Samples](#step-9-average-calcium-signals-across-samples)
 
-## 🧠 Overview ##
+## Overview ##
 
 This repository provides Python scripts and a complete data analysis pipeline for 3D calcium imaging of thermosensory neurons in Drosophila larvae. Designed as an instructional resource, this pipeline offers step-by-step guidance for students and educators to analyze real calcium imaging datasets with minimal coding experience.
 
@@ -36,7 +36,7 @@ This pipeline is used to:
 
 > ✅ No prior programming experience is required — the workflow guides students step-by-step through image processing, signal extraction, and data interpretation using accessible tools.
 
-## 📦 Requirements
+## Requirements
 To complete the analysis workflow, you will need the following software:
 
 ### 1.  ImageJ (Fiji): (https://imagej.net/software/fiji/)
@@ -111,6 +111,24 @@ Select "Download ZIP"
 Unzip the folder into your calcium_env (or PyCharm project) directory
 
 ✅ Once the repository is in place, you're ready to begin with Step 1: Visualizing Neuron Response in ImageJ
+
+
+## Download Demo data
+You can download a complete set of demo data to test the analysis pipeline:
+
+🔗 [Google Drive:] https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing
+
+### Contents
+- Warm Cell Calcium Imaging Dataset  
+  A recorded calcium imaging dataset from warm cells, used for practicing fluorescence extraction with **Fiji** and **TrackMate**.
+
+- Analysis Folder  
+  `Analysis/` directory including `Neuron 0`, `Neuron 1`, and background files, ready for testing `CIAnalysis_120s.py`.
+
+- Temperature-Aligned Demo  
+  A sample set for running `CITbind_dynamic.py`, which includes calcium traces with temperature log.
+
+> ✅ Use this dataset to follow the full analysis workflow without needing your own experimental data.
 
 
 ## Input File Organization
