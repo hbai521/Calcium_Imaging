@@ -1,6 +1,26 @@
-Calcium Imaging data analysis on Drosophila larval thermal sensing neurons
+## Calcium Imaging data analysis on Drosophila larval thermal sensing neurons ##
 
-Overview
+## 📚 Table of Contents
+
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Setup Instructions](#setup-instructions)
+  - [1. Set Up a Python Virtual Environment](#1-set-up-a-python-virtual-environment)
+  - [2. Install Required Packages](#2-install-required-packages)
+  - [3. Clone or Download This Repository](#3-clone-or-download-this-repository)
+- [Input File Organization](#input-file-organization)
+- [Workflow](#workflow)
+  - [Step 1: Visualizing Neuron Response in ImageJ](#step-1-visualizing-neuron-response-in-imagej)
+  - [Step 2: Extracting Fluorescence Intensity Using TrackMate](#step-2-extracting-fluorescence-intensity-using-trackmate)
+  - [Step 3: Background Correction](#step-3-background-correction)
+  - [Step 4: Clean the Exported CSV File](#step-4-clean-the-exported-csv-file)
+  - [Step 5: Work on Additional Z-slices](#step-5-work-on-additional-z-slices)
+  - [Step 6: Checklist Before Running Python](#step-6-checklist-before-running-python)
+  - [Step 7: Run CIAanalysis_120min.py to Calculate ΔF/Fmin](#step-7-run-ciaanalysis_120minpy-to-calculate-Δffmin)
+  - [Step 8: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
+  - [Step 9: Average Calcium Signals Across Samples](#step-9-average-calcium-signals-across-samples)
+
+## 🧠 Overview ##
 
 This repository provides Python scripts and a complete data analysis pipeline for 3D calcium imaging of thermosensory neurons in Drosophila larvae. Designed as an instructional resource, this pipeline offers step-by-step guidance for students and educators to analyze real calcium imaging datasets with minimal coding experience.
 
@@ -14,48 +34,43 @@ This pipeline is used to:
 
 - Visualize average responses.
 
-Requirements
+> ✅ No prior programming experience is required — the workflow guides students step-by-step through image processing, signal extraction, and data interpretation using accessible tools.
 
-### 1.  ImageJ (Fiji): 
+## 📦 Requirements
+To complete the analysis workflow, you will need the following software:
 
-### 2. Python: 
+### 1.  ImageJ (Fiji): (https://imagej.net/software/fiji/)
 
-Python libraries: pandas, matplotlib, numpy
+### 2. Python 3.6+: (https://www.python.org/)
 
-To install dependencies: 
+Install the following Python packages using `pip`:
 
+- `pandas`
+- `numpy`
+- `matplotlib`
 
-```
-bash
-
+```bash
 Pip install –r requirements.txt
-
-Setup: Download Repository & Set Up Python Environment
-
-Before starting the analysis, follow these steps to set up your Python environment and download the necessary scripts:
-
-## 1. Setup a Python Virtrual Environment
-
-You can either use the terminal or create a new project in PyCharm.
-
-### Terminal Setup
-
-
 ```
-bash
 
+## Setup Instructions
+
+You can set up your Python environment using either a terminal or an IDE like PyCharm.
+
+### 1. Setup a Python Virtrual Environment
+
+#### Terminal Setup
+
+```bash
+# Create a virtual environment
 python -m venv calcium_env
 
 # Active the environment:
-
 source calcium_env/bin/activate      # On macOS/Linux
-
 calcium_env\Scripts\activate         # On Windows
-
 ```
 
-
-### Terminal Setup
+#### Pycharm Setup
 
 Open PyCharm → New Project
 
@@ -63,35 +78,29 @@ Select "New environment using venv"
 
 Set the folder name (e.g., calcium_env)
 
-Click Create
+Click Create to generate the environment
+
+> ✅ Once your environment is ready, install the required Python packages using the next step.
 
 ## 2. Install Required Packages
 
-Install dependencies using pip:
+After activating your virtual environment, install all required Python libraries using:
 
-
-```
-bash
-
+```bash
 pip install -r requirements.txt
-
 ```
-
-
 This will install essential packages like pandas, numpy, and matplotlib.
 
-## 3. Clone or Download This Repository into the virtual environment/project folder
+## 3. Clone or Download This Repository 
+
+Clone or download this repository into the same directory as your virtual environment or your PyCharm project folder.
 
 ### Clone with Git
+Use the following command to clone the repository directly into your environment:
 
-
+```bash
+git clone https://github.com/<your-username>/<your-repo-name>.git 
 ```
-bash
-
-git clone 
-
-```
-
 
 ### Download ZIP
 
@@ -101,55 +110,53 @@ Select "Download ZIP"
 
 Unzip the folder into your calcium_env (or PyCharm project) directory
 
-Input File Organization
+✅ Once the repository is in place, you're ready to begin with Step 1: Visualizing Neuron Response in ImageJ
+
+
+## Input File Organization
 
 Before starting the analysis, unzip demo data and make sure the files and folder structure match the following:
 
+<pre> ```
+
 project/
-
 │
-
 ├── MAX_Samplexxx.tif            # Maximum projection TIFF for initial visualization
-
 ├── Analog - <timestamp>.csv      # Temperature log recorded during imaging
-
 ├── Samplexxx_stacks/           # 21 z-slice TIFFs (Z01 to Z21), each with 88 time points
-
 │   ├── Z01.tif
-
 │   └── ...
-
 ├── Analysis/       #empty folder with correct file structure 
-
      ├── background_i.xlsx       
-
      ├── Neuron 0/   
+     └── Neuron 1/    
+``` </pre>
 
-    └── Neuron 1/     
+⚠️ Notes: Keep file names and folder structure exactly as recommended. The analysis scripts rely on this structure to locate and process data correctly. Incorrect naming or layout will likely result in file-not-found or parsing errors during execution.             
 
-Notes: Keep file names and folder structure exactly as recommended. The analysis scripts rely on this structure to locate and process data correctly. Incorrect naming or layout will likely result in file-not-found or parsing errors during execution.             
+## Workflow
 
-Workflow
+### Step1: Visualizing Neuron Response in ImageJ
 
-## Step1: Visualizing Neuron Response in ImageJ
+Start your analysis by loading the **maximum projection image** into Fiji (ImageJ). This image helps you quickly assess overall fluorescence intensity, neuron locations, and detect any movement artifacts before diving into Z-stack analysis.
 
-(add overview)
+#### Why start with the maximum projection?
 
-### Why start with the maximum projection?
+Using the **maximum projection image** allows you:
+- Get an overview of neuron activity across time frames (e.g., fluorescence changes in response to stimuli)
+-  Visually identify the **number**, **shape**, and **position** of neurons
+- ✅ Quickly screen for **movement artifacts** across time
+- ✅ Simplify interpretation compared to full Z-stacks by flattening all planes into one image
 
-Starting with the **maximum projection image** helps you quickly access:
-
-An overview of neuron activity across time frames, such like Fluorescence intensity and response to the stimuli
-
-The number, shape, position of neurons in the sample
-
-Easier to interpret than raw Z-stack TIFFs because it flattens all Z-planes into one image.  
+- Get an overview of neuron activity across time frames (e.g., fluorescence changes in response to stimuli)
+- Visually identify the **number**, **shape**, and **position** of neurons
+- Quickly screen for **movement artifacts** across time
+- Easier to interpret than raw Z-stack TIFFs because it flattens all Z-planes into one image.  
 
 It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-slice analysis.
-
-Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
-
 Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis. 
+⚠️ Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
+
 
 ### Loading the Image in Fiji
 
