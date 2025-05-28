@@ -34,7 +34,7 @@ This pipeline is used to:
 
 - Visualize average responses.
 
-> ✅ No prior programming experience is required — the workflow guides students step-by-step through image processing, signal extraction, and data interpretation using accessible tools.
+✅ No prior programming experience is required — the workflow guides students step-by-step through image processing, signal extraction, and data interpretation using accessible tools.
 
 ## Requirements
 To complete the analysis workflow, you will need the following software:
@@ -189,6 +189,7 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 3. Use the slider at the bottom to scroll through time frames.  
 
 4. Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.
+![](git_images/image_14.png)
 
 ## Step 2: Extracting Fluorescence Intensity Using TrackMate
 
