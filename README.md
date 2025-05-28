@@ -1,4 +1,4 @@
-## Calcium Imaging data analysis on Drosophila larval thermal sensing neurons ##
+# Calcium Imaging data analysis on *Drosophila* larval thermal sensing neurons ##
 
 ## Table of Contents
 
@@ -20,9 +20,9 @@
   - [Step 8: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
   - [Step 9: Average Calcium Signals Across Samples](#step-9-average-calcium-signals-across-samples)
 
-## Overview ##
+## Overview 
 
-This repository provides Python scripts and a complete data analysis pipeline for 3D calcium imaging of thermosensory neurons in Drosophila larvae. Designed as an instructional resource, this pipeline offers step-by-step guidance for students and educators to analyze real calcium imaging datasets with minimal coding experience.
+This repository provides Python scripts and a complete data analysis pipeline for 3D calcium imaging of thermosensory neurons in *Drosophila* larvae. Designed as an instructional resource, this pipeline offers step-by-step guidance for students and educators to analyze real calcium imaging datasets with minimal coding experience.
 
 This pipeline is used to:
 
@@ -59,7 +59,7 @@ You can set up your Python environment using either a terminal or an IDE like Py
 
 ### 1. Setup a Python Virtrual Environment
 
-#### Terminal Setup
+- Terminal Setup
 
 ```bash
 # Create a virtual environment
@@ -70,15 +70,15 @@ source calcium_env/bin/activate      # On macOS/Linux
 calcium_env\Scripts\activate         # On Windows
 ```
 
-#### Pycharm Setup
+- Pycharm Setup
 
-Open PyCharm → New Project
+  - Open PyCharm → New Project
 
-Select "New environment using venv"
+  - Select "New environment using venv"
 
-Set the folder name (e.g., calcium_env)
+  - Set the folder name (e.g., calcium_env)
 
-Click Create to generate the environment
+  - Click Create to generate the environment
 
 > ✅ Once your environment is ready, install the required Python packages using the next step.
 
@@ -104,11 +104,11 @@ git clone https://github.com/<your-username>/<your-repo-name>.git
 
 ### Download ZIP
 
-Click the green "Code" button on this GitHub page
+- Click the green "Code" button on this GitHub page
 
-Select "Download ZIP"
+- Select "Download ZIP"
 
-Unzip the folder into your calcium_env (or PyCharm project) directory
+- Unzip the folder into your calcium_env (or PyCharm project) directory
 
 ✅ Once the repository is in place, you're ready to begin with Step 1: Visualizing Neuron Response in ImageJ
 
@@ -116,31 +116,31 @@ Unzip the folder into your calcium_env (or PyCharm project) directory
 ## Download Demo data
 You can download a complete set of demo data to test the analysis pipeline:
 
-🔗 [Google Drive:] https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing
+🔗 [Google Drive:] (https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
 
 ### Contents
-- Warm Cell Calcium Imaging Dataset  
+- Warm Cell Calcium Imaging Dataset (TrackMate) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
   A recorded calcium imaging dataset from warm cells, used for practicing fluorescence extraction with **Fiji** and **TrackMate**.
 
-- Analysis Folder  
+- Analysis Folder (CIAnalysis_120s.py) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
   A pre-configured `Analysis/` directory including `Neuron 0`, `Neuron 1`, and background files—ready for testing `CIAnalysis_120s.py`.
 
-- Temperature-Aligned Demo  
+- Temperature-Aligned Demo (CITbind_dynamic.py) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1Os7cZcNqwWUiyfrDLTFGgrDq9NQP3Y_W?usp=drive_link)  
   A sample set for running `CITbind_dynamic.py`, including calcium traces with temperature logs.
 
-- Summary Demo  
+- Summary Demo (summary_class.py) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1GgIKlhk0pE3DFm2LLXnqHcBZ7ylPUorC?usp=drive_link)  
   A demo dataset for testing `summary_class.py`, which summarizes group-level calcium responses.
 
-> ✅ Use these datasets to follow the full analysis workflow without needing your own experimental data.
+✅ Use these datasets to follow the full analysis workflow without needing your own experimental data.
 
 
-## Input File Organization
+## DOWC_demo file structure
 
-Before starting the analysis, unzip demo data and make sure the files and folder structure match the following:
+Before starting the analysis, unzip <DOWC_demo> and make sure the files and folder structure match the following:
 
 <pre> ```
 
@@ -151,7 +151,7 @@ project/
 ├── Samplexxx_stacks/           # 21 z-slice TIFFs (Z01 to Z21), each with 88 time points
 │   ├── Z01.tif
 │   └── ...
-├── Analysis/       #empty folder with correct file structure 
+├── Analysis/       # empty folder with correct file structure 
      ├── background_i.xlsx       
      ├── Neuron 0/   
      └── Neuron 1/    
@@ -165,21 +165,18 @@ project/
 
 Start your analysis by loading the **maximum projection image** into Fiji (ImageJ). This image helps you quickly assess overall fluorescence intensity, neuron locations, and detect any movement artifacts before diving into Z-stack analysis.
 
-#### Why start with the maximum projection?
-
+- Why start with the maximum projection?
 Using the **maximum projection image** allows you:
-- Get an overview of neuron activity across time frames (e.g., fluorescence changes in response to stimuli)
--  Visually identify the **number**, **shape**, and **position** of neurons
-- ✅ Quickly screen for **movement artifacts** across time
-- ✅ Simplify interpretation compared to full Z-stacks by flattening all planes into one image
-
-- Get an overview of neuron activity across time frames (e.g., fluorescence changes in response to stimuli)
-- Visually identify the **number**, **shape**, and **position** of neurons
-- Quickly screen for **movement artifacts** across time
-- Easier to interpret than raw Z-stack TIFFs because it flattens all Z-planes into one image.  
-
+  - Get an overview of neuron activity across time frames (e.g., fluorescence changes in response to stimuli)
+  - Visually identify the number, shape, and position of neurons
+  - Quickly screen for movement artifacts across time
+  - Easier interpretation compared to full Z-stacks by flattening all planes into one image
+  
 It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-slice analysis.
-Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis. 
+
+Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.
+![DOWC_demo](git_images/image_13png)
+
 ⚠️ Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
 
 
