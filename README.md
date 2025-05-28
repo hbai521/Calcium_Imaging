@@ -80,7 +80,7 @@ calcium_env\Scripts\activate         # On Windows
 
   - Click Create to generate the environment
 
-> ✅ Once your environment is ready, install the required Python packages using the next step.
+✅ Once your environment is ready, install the required Python packages using the next step.
 
 ## 2. Install Required Packages
 
@@ -175,7 +175,7 @@ Using the **maximum projection image** allows you:
 It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-slice analysis.
 
 Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.
-![DOWC_demo](git_images/image_13png)
+![DOWC_demo](calcium_imaging/git_images/image_13png)
 
 ⚠️ Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
 
