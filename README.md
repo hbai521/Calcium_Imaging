@@ -182,13 +182,13 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 
 ### Loading the Image in Fiji
 
-1. Launch Fiji (ImageJ)
+- Launch Fiji (ImageJ)
 
-2. Drag and drop MAX_DOWCXXX.tif into the Fiji window, or use File → Open... and select MAX_DOWCXXX.tif.
+- Drag and drop MAX_DOWCXXX.tif into the Fiji window, or use File → Open... and select MAX_DOWCXXX.tif.
 
-3. Use the slider at the bottom to scroll through time frames.  
+- Use the slider at the bottom to scroll through time frames.  
 
-4. Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
+- Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
 
 ![](git_images/image_14.png)<br>
 
@@ -198,29 +198,29 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 1. Find the brightest z-stack in Fiji
 
-Go to ‘SampleXXX_stack/’ (e.g. DOWC_demp/DOWC001_stack) folder and open a mid-plane TIFF (e.g. DOWC_Z10.tif)
+- Go to ‘SampleXXX_stack/’ (e.g. DOWC_demp/DOWC001_stack) folder and open a mid-plane TIFF (e.g. DOWC_demp/DOWC001_stack/DOWC_Z10.tif)
 
-Adjust brightness/contrast to see cells clear.
+- Adjust brightness/contrast to see cells clear.
 
-Find a strong response time point (e.g. t=42 in demo sample)
+- Find a strong response time point (e.g. t=42 in demo sample)
 
-Open neighboring z-stacks at t=42 and compare fluorescence brightness.
+- Open neighboring z-stacks at t=42 and compare fluorescence brightness.
 
-Select the strongest slice to start the analysis
+- Select the strongest slice to start the analysis
 
-- For example:
-  - Neuron 0, start the analysis on ##_z08.tif
-  - Neuron 1, start the analysis on ##_z10.tiff<br>
+  - For example:
+    - Neuron 0, start the analysis on ##_z08.tif
+    - Neuron 1, start the analysis on ##_z10.tiff<br>
 
 ![](git_images/image_15.png)<br>
 
 ### 2. Lauch TrackMate for Neuron 0
 
-Open DOWC001_Z08.tif in Fiji
+- Open DOWC001_Z08.tif in Fiji
 
-Go to Plugin/Tracking/TrackMate.
+- Go to Plugin/Tracking/TrackMate.
 
-When prompted with **Z/T swapped?**, click **Yes**.<br>
+- When prompted with **Z/T swapped?**, click **Yes**.<br>
 
 ![](git_images/image_16.png)<br>
 
@@ -229,7 +229,7 @@ When prompted with **Z/T swapped?**, click **Yes**.<br>
 ### 3. Configure Detection Settings in TrackMate
 
 - Detector: Select **DoG (Difference of Gaussian)**
-- 
+
 ![](git_images/image_18.png)
 
 - Estimated object diameter: 22–36 pixels (based on neuron size)
@@ -240,7 +240,7 @@ When prompted with **Z/T swapped?**, click **Yes**.<br>
   - Sub-pixel localization
   - Pre-process with median filter
 
-Click Preview to confirm that the detection (purple circle) fits the neuron correctly.<br>
+- Click Preview to confirm that the detection (purple circle) fits the neuron correctly.<br>
 
 ![](git_images/image_19.png)
 
@@ -258,11 +258,11 @@ Click Preview to confirm that the detection (purple circle) fits the neuron corr
 
 ![](git_images/image_21.png)<br>
 
+![](git_images/image_22.png)<br>
+
 ### 5. Export Intensity Data
 
 - Click **Sports** to acquire **All spots table**<br>
-
-![](git_images/image_22.png)<br>
 
 - Sort **All spots data** by clicking **Track ID**<br>
 
@@ -306,7 +306,7 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 
 ![](git_images/image_25.png)<br> 
 
-Copy and paste to background_i.xlsx.<br>
+- Copy and paste to background_i.xlsx.<br>
 
 ![](git_images/image_26.png)<br> 
 
@@ -314,9 +314,7 @@ Copy and paste to background_i.xlsx.<br>
 ⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
-## Step 5: Work on the other stacks which you can see the target neuron.
-
-Repeat the TrackMate analysis (Steps 2–4) for all Z-slices where the neuron is clearly visible.
+## Step 5: Repeat the TrackMate analysis on all other stacks which you can see the target neuron across all times.
 
 ## Step 6: Checklist Before Running Python
 
@@ -330,7 +328,7 @@ Make sure the following are true before running the analysis script:
 
 - Inconsistencies here will result in Python script errors or inaccurate ΔF/Fmin values.
 
-## Step 7: Run `CIAanalysis_120min.py` to Calculate ΔF/Fmin
+## Step 7: Run `CIAanalysis_120s.py` to Calculate ΔF/Fmin
 
 Once all intensity files and background data are prepared and validated, use the Python script **CIAanalysis_120min.py** to compute **ΔF/Fmin** for each neuron and generate visual outputs.
 
@@ -354,6 +352,7 @@ python CIAnalysis_120min.py -i path/to/Analysis --merge --cell_type DOWC
   - --cell_type: Adds a label (e.g., DOWC, DOCC) to outputs for reference
 
 ### 3. Input Files before running the command
+
 <pre> ```
 project/
 │
@@ -376,56 +375,35 @@ project/
 
 After the script finishes, you will find the results in the following structure:
 
+<pre> ```
 project/
-
 │
-
 ├── MAX_SampleXXX.tif            # Maximum projection TIFF for initial visualization
-
 ├── Analog - <timestamp>.csv      # Temperature log recorded during imaging
-
 ├── SampleXXX_stacks/           # 21 z-slice TIFFs (Z01 to Z21), each with 88 time points
-
 │   ├── Z01.tif
-
 │   └── ...
-
 ├── Analysis/        #  CIAanalysis_120min.py input 
-
 │   ├── background_i.xlsx
-
 │   ├── background_list.csv       
-
 │   ├── Neuron 0/
-
 │   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-
 │   │   └── ...
-
 │   ├── Neuron 1/
-
 │   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-
 │   │   └── ...
-
 │   └── results/       # generated results folder
-
 │   │   ├──Neuron 0.csv       # ΔF/Fmin trace for Neuron 0
-
 │   │   ├──Neuron 1.csv
-
 │   │   ├──Neuron Plots/
-
 │   │   │  ├──Neuron 0.png       #plot for neuron 0
-
 │   │   │  └── Neuron 1.png
-
 │   │   ├──Merged_data/
-
 │   │   │  ├──merged_data.csv       #Combined ΔF/Fmin data
-
 │   │   │  └── Average_dF.png
-
+  
+``` </pre>
+  
 Notes: Filenames like ‘Mean_Intensity03.csv’ must follow the exact naming rule with the two-digit z-slice number for the script to parse them correctly
 
 ## Step 8: Run Align Calcium Signal with Temperature Using `CITbind_dynamic.py`
