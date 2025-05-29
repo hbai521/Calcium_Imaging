@@ -337,17 +337,17 @@ python CIAnalysis_120s.py -i path/to/Analysis --merge --cell_type DOWC
 ```
 - Script arguments
 
-  - -i: Path to the Analysis/ folder
+  - -i: path to the Analysis/ folder
 
   - --merge: (optional) Combines results from all neurons into a summary
 
-  - --cell_type: Adds a label (e.g., DOWC, DOCC) to outputs for reference
+  - --cell_type: adds a label (e.g., DOWC, DOCC) to outputs for reference
 
 ### 3. Input files before running CIAanalysis_120s.py
 
 <pre> ```
 project/
-└── Analysis/        # CIAanalysis_120min.py input
+└── Analysis/        # CIAanalysis_120s.py input
     ├── background_i.xlsx       
     ├── Neuron 0/
     │   ├── Mean_Intensity##.csv      # file name should following the naming 
@@ -457,7 +457,7 @@ This step computes the average ΔF/Fmin trace and generates group-level plots ac
   
   - 'Summary_df.csv': the first column name is Temperature, then continue with n1, n2, ...
     
-  - 'Summary_temperature.csv':The first column name is Temperature, then continue with t1, t2, ... 
+  - 'Summary_temperature.csv': the first column name is Temperature, then continue with t1, t2, ... 
 
 ### 2. Command
 Run the following command in your terminal or PyCharm:
