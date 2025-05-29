@@ -5,9 +5,9 @@
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Setup Instructions](#setup-instructions)
-  - [1. Set Up a Python Virtual Environment](#1-set-up-a-python-virtual-environment)
-  - [2. Install Required Packages](#2-install-required-packages)
-  - [3. Clone or Download This Repository](#3-clone-or-download-this-repository)
+  - [Set Up a Python Virtual Environment](#set-up-a-python-virtual-environment)
+  - [Install Required Packages](#install-required-packages)
+  - [Clone or Download This Repository](#clone-or-download-this-repository)
 - [Input File Organization](#input-file-organization)
 - [Workflow](#workflow)
   - [Step 1: Visualizing Neuron Response in ImageJ](#step-1-visualizing-neuron-response-in-imagej)
@@ -37,6 +37,7 @@ This pipeline is used to:
 ✅ No prior programming experience is required 
 
 ## Requirements
+
 To complete the analysis following softwares are required:
 
 - ImageJ (Fiji): (https://imagej.net/software/fiji/)
@@ -65,9 +66,9 @@ calcium_env\Scripts\activate
 ```
 - Pycharm Setup
 
-  - Open PyCharm → **New Project**
+  - Open PyCharm → 'New Project'
 
-  - Select **New environment using venv**
+  - Select 'New environment using venv'
 
   - Set the folder name (e.g., calcium_env)
 
@@ -75,14 +76,14 @@ calcium_env\Scripts\activate
 
 ✅ Once the environment is ready, install the required Python packages.
 
-## 2. Install Required Packages
+## Install Required Packages
 
 ```bash
 pip install -r requirements.txt
 ```
 This will install essential packages like pandas, numpy, and matplotlib.
 
-## 3. Clone or Download This Repository 
+## Clone or Download This Repository 
 
 Clone or download this repository into the same directory as your virtual environment or your PyCharm project folder.
 
@@ -106,19 +107,19 @@ Download a complete set of demo data to test the analysis pipeline:
 🔗 [Google Drive:](https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
 
 ### Contents
-- Warm Cell Calcium Imaging Dataset (TrackMate) 
+- Warm Cell Calcium Imaging Dataset (`TrackMate`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
-  A recorded calcium imaging dataset from warm cells, used for practicing fluorescence extraction using **TrackMate**.
+  A recorded calcium imaging dataset from warm cells, used for practicing fluorescence extraction using `TrackMate`.
 
-- Analysis Folder ('CIAnalysis_120s.py') 
+- Analysis Folder (`CIAnalysis_120s.py`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
   A pre-configured `Analysis/` directory including `Neuron 0`, `Neuron 1`, and background files which is ready for testing `CIAnalysis_120s.py`.
 
-- Temperature-Aligned Demo ('CITbind_dynamic.py') 
+- Temperature-Aligned Demo (`CITbind_dynamic.py`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1Os7cZcNqwWUiyfrDLTFGgrDq9NQP3Y_W?usp=drive_link)  
   A sample set for running `CITbind_dynamic.py`, including calcium traces with temperature logs.
 
-- Summary Demo ('df_temp_class.py') 
+- Summary Demo (`df_temp_class.py`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1GgIKlhk0pE3DFm2LLXnqHcBZ7ylPUorC?usp=drive_link)  
   A demo dataset for testing `df_temp_class.py`, which summarizes group-level calcium responses.
 
@@ -129,7 +130,6 @@ Download a complete set of demo data to test the analysis pipeline:
 Before starting the analysis, unzip <DOWC_demo> and make sure the files and folder structure match the following:
 
 <pre> ```
-
 project/
 │
 ├── MAX_Samplexxx.tif            # Maximum projection TIFF for initial visualization
@@ -149,7 +149,7 @@ project/
 
 ### Step1: Visualizing Neuron Response in ImageJ
 
-- Start the analysis by loading the **maximum projection image** into Fiji (ImageJ). This image helps you quickly access:
+- Start the analysis by loading the `maximum projection image` into Fiji (ImageJ). This image helps you quickly access:
 
   - overall fluorescence intensity
   
@@ -210,7 +210,7 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 - Go to Plugin/Tracking/TrackMate.
 
-- When prompted with 'Z/T swapped?', click 'Yes'.<br>
+- When prompted with `Z/T swapped?`, click `Yes`.<br>
 
 ![](git_images/image_16.png)<br>
 
@@ -218,7 +218,7 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 3. Configure Detection Settings in TrackMate
 
-- Detector: Select 'DoG (Difference of Gaussian)'<br>
+- Detector: Select `DoG (Difference of Gaussian)`<br>
 ![](git_images/image_18.png)<br>
 
 - Estimated object diameter: 22–36 pixels (based on neuron size)
@@ -237,15 +237,15 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 4. Apply Spot Filters
 
-- Use 'Set filters on spots' to remove irrelevant signals
+- Use `Set filters on spots` to remove irrelevant signals
 
-- Filter by 'X/Y position' to isolate Neuron 0.
+- Filter by `X/Y position` to isolate Neuron 0.
 
-- Use 'Preview' to ensure only the correct neuron is selected.<br>
+- Use `Preview` to ensure only the correct neuron is selected.<br>
 
 ![](git_images/image_20.png)<br>
 
-- Select 'Simple LAP tracker' with following settings.<br>
+- Select `Simple LAP tracker` with following settings.<br>
 
 ![](git_images/image_21.png)<br>
 
@@ -253,15 +253,15 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 5. Export Intensity Data
 
-- Click 'Sports' to acquire 'All spots table' <br>
+- Click `Sports` to acquire `All spots table` <br>
 
 ![](git_images/image_23.png)<br>
 
-- Sort 'All spots data' by clicking 'Track ID' <br>
+- Sort `All spots data` by clicking `Track ID` <br>
 
 ![](git_images/image_24.png)<br>
 
-- Click 'Export to CSV' to save the file into Analysis/Neuron 0/Mean_Intensity08.csv.
+- Click `Export to CSV` to save the file into `Analysis/Neuron 0/Mean_Intensity08.csv`.
 
 ### 6. Clean the Exported CSV file
 
@@ -269,9 +269,9 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 - Open the Mean_Intensity08.csv, remove extra headers
 
-- Manually check each row. Use  'Track ID' and visualize same ID image in 'All sport table' in Trackmate. Remove any incorrect or off-target tracks in csv file. 
+- Manually check each row. Use `Track ID` and visualize same ID image in `All sport table` in Trackmate. Remove any incorrect or off-target tracks in csv file. 
 
-- Sort the file by 'POSITION_T'. 
+- Sort the file by `POSITION_T`. 
 
 - Delete duplicates. 
 
@@ -307,7 +307,8 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 ⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.<br>
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
-## Step 5: Repeat the TrackMate analysis on all other stacks which you can see the target neuron across all times.
+## Step 5: Repeat the TrackMate Analysis
+Repeat the analysis from step 2-4 on all other z-stacks.
 
 ## Step 6: Checklist Before Running Python
 
@@ -344,7 +345,7 @@ python CIAnalysis_120s.py -i path/to/Analysis --merge --cell_type DOWC
 
   - --cell_type: Adds a label (e.g., DOWC, DOCC) to outputs for reference
 
-### 3. Input Files before running CIAanalysis_120s.py
+### 3. Input files before running CIAanalysis_120s.py
 
 <pre> ```
 project/
@@ -358,7 +359,7 @@ project/
         └── ...
 ``` </pre>  
 
-### 4. Output Files after running CIAanalysis_120s.py
+### 4. Output files after running CIAanalysis_120s.py
 
 After the script finishes, you will find the results in the following structure:
 
@@ -390,7 +391,7 @@ project/
 This step integrate the calcium activity (ΔF/Fmin) with the temperature log file collected during imaging. <br>
 It generates a dual-axis plot that visualizes neuronal responses alongside temperature fluctuations over time.<br>
 
-### 1. Input Files before running the command
+### 1. Input files before running the command
 
 Create a new folder named SampleXXX_date (e.g. DOWC001_20240820) 
 
@@ -421,7 +422,7 @@ python CITbind_dynamic.py -i path/to/SampleXXX_date -n
 
   - -n: Number of neurons analyzed (i.e., number of individual neuron .csv files)
 
-### 3. Output Files after running the command
+### 3. Output files after running the command
 
 - The script will generate:
 
@@ -444,7 +445,7 @@ After run the script you will get the results for the current sample. Then conti
 
 This step computes the average ΔF/Fmin trace and generates group-level plots across multiple samples or neurons. This is useful for comparing replicates or summarizing class-wide data.
 
-### 1. Required Input Files
+### 1. Required input files
 
 - Create a new folder named ‘summary’
   
