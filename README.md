@@ -185,7 +185,6 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 
 - Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
 
-![](git_images/image_14.png)<br>
 <p align="center">
   <img src="git_images/image_14.png" alt="">
 </p>
