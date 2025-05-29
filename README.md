@@ -149,17 +149,15 @@ project/
 
 ### Step1: Visualizing Neuron Response in ImageJ
 
-- Start the analysis by loading the `maximum projection image` into Fiji (ImageJ). This image helps you quickly access:
+- Start the analysis by visualizing the `maximum projection image` in Fiji (ImageJ). This image helps you quickly access:
 
   - overall fluorescence intensity
   
   - neuron number, shape, and locations
   
   - movement artifacts 
-  
-- It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-stack analysis.<br>
 
-- Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
+⚠️ Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
 ![DOWC_demo](git_images/image_13.png)
 
 ⚠️ Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
