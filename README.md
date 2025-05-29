@@ -83,7 +83,7 @@ calcium_env\Scripts\activate
 
   - Click Create to generate the environment
 
-✅ Once your environment is ready, install the required Python packages.
+✅ Once the environment is ready, install the required Python packages.
 
 ## 2. Install Required Packages
 
@@ -110,10 +110,8 @@ git clone https://github.com/<your-username>/<your-repo-name>.git
 
   - Unzip the folder into your calcium_env (or PyCharm project) directory
 
-✅ Once the repository is in place, you're ready to begin with Step 1: Visualizing Neuron Response in ImageJ
-
 ## Download Demo data
-You can download a complete set of demo data to test the analysis pipeline:
+Download a complete set of demo data to test the analysis pipeline:
 
 🔗 [Google Drive:](https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
 
