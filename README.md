@@ -16,7 +16,7 @@
   - [Step 4: Clean the Exported CSV File](#step-4-clean-the-exported-csv-file)
   - [Step 5: Work on Additional Z-stacks](#step-5-work-on-additional-z-stacks)
   - [Step 6: Checklist Before Running Python](#step-6-checklist-before-running-python)
-  - [Step 7: Run CIAanalysis_120s.py to Calculate ΔF/Fmin](#step-7-run-ciaanalysis_120s.py-to-calculate-Δffmin)
+  - [Step 7: Calculate ΔF/Fmin](#step-7-calculate-Δf/fmin)
   - [Step 8: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
   - [Step 9: Summary Calcium reponses Across Samples](#step-9-summary-calcium-responses-across-samples)
 
@@ -119,19 +119,19 @@ You can download a complete set of demo data to test the analysis pipeline:
 ### Contents
 - Warm Cell Calcium Imaging Dataset (TrackMate) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
-  A recorded calcium imaging dataset from warm cells, used for practicing fluorescence extraction with **Fiji** and **TrackMate**.
+  A recorded calcium imaging dataset from warm cells, used for practicing fluorescence extraction using **TrackMate**.
 
-- Analysis Folder (CIAnalysis_120s.py) 
+- Analysis Folder ('CIAnalysis_120s.py') 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
-  A pre-configured `Analysis/` directory including `Neuron 0`, `Neuron 1`, and background files—ready for testing `CIAnalysis_120s.py`.
+  A pre-configured `Analysis/` directory including `Neuron 0`, `Neuron 1`, and background files which is ready for testing `CIAnalysis_120s.py`.
 
-- Temperature-Aligned Demo (CITbind_dynamic.py) 
+- Temperature-Aligned Demo ('CITbind_dynamic.py') 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1Os7cZcNqwWUiyfrDLTFGgrDq9NQP3Y_W?usp=drive_link)  
   A sample set for running `CITbind_dynamic.py`, including calcium traces with temperature logs.
 
-- Summary Demo (summary_class.py) 
+- Summary Demo ('df_temp_class.py') 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1GgIKlhk0pE3DFm2LLXnqHcBZ7ylPUorC?usp=drive_link)  
-  A demo dataset for testing `summary_class.py`, which summarizes group-level calcium responses.
+  A demo dataset for testing `df_temp_class.py`, which summarizes group-level calcium responses.
 
 ✅ Use these datasets to follow the full analysis workflow without needing your own experimental data.
 
@@ -160,15 +160,13 @@ project/
 
 ### Step1: Visualizing Neuron Response in ImageJ
 
-Start the analysis by loading the **maximum projection image** into Fiji (ImageJ). This image helps you quickly assess overall fluorescence intensity, neuron locations, and detect any movement artifacts before diving into Z-stack analysis.
+Start the analysis by loading the **maximum projection image** into Fiji (ImageJ). This image helps you quickly access:
 
-- Why start with the maximum projection?
-Using the maximum projection image allows you:
-  - Get an overview of neuron activity across time frames (e.g., fluorescence changes in response to stimuli)
-  - Visually identify the number, shape, and position of neurons
-  - Inspect for movement artifacts across time
+- overall fluorescence intensity
+- neuron number, shape, and locations
+- movement artifacts 
   
-It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-stack analysis.
+It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-stack analysis.<br>
 
 Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
 ![DOWC_demo](git_images/image_13.png)
@@ -193,7 +191,7 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 
 This step use TrackMate in Fiji to extract fluorescence intensity over time for each neuron from selected z-stack TIFFs. We will use Neuron 0 as example to demonstrate z-stack analysis. 
 
-### 1. Find the brightest z-stack in Fiji
+### 1. Start with the brightest z-stack in Fiji
 
 - Go to ‘SampleXXX_stack/’ (e.g. DOWC_demp/DOWC001_stack) folder and open a mid-plane TIFF (e.g. DOWC_demp/DOWC001_stack/DOWC_Z10.tif)
 
@@ -217,7 +215,7 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 - Go to Plugin/Tracking/TrackMate.
 
-- When prompted with **Z/T swapped?**, click **Yes**.<br>
+- When prompted with 'Z/T swapped?', click 'Yes'.<br>
 
 ![](git_images/image_16.png)<br>
 
@@ -225,8 +223,7 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 3. Configure Detection Settings in TrackMate
 
-- Detector: Select **DoG (Difference of Gaussian)**
-
+- Detector: Select 'DoG (Difference of Gaussian)'
 ![](git_images/image_18.png)
 
 - Estimated object diameter: 22–36 pixels (based on neuron size)
@@ -243,15 +240,15 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 4. Apply Spot Filters
 
-- Use **Set filters on spots** to remove irrelevant signals
+- Use 'Set filters on spots' to remove irrelevant signals
 
-- Filter by **X/Y position** to isolate Neuron 0.
+- Filter by 'X/Y position' to isolate Neuron 0.
 
-- Use **Preview** to ensure only the correct neuron is selected.<br>
+- Use 'Preview' to ensure only the correct neuron is selected.<br>
 
 ![](git_images/image_20.png)<br>
 
-- Select **Simple LAP tracker** with following settings.<br>
+- Select 'Simple LAP tracker' with following settings.<br>
 
 ![](git_images/image_21.png)<br>
 
@@ -259,15 +256,15 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 5. Export Intensity Data
 
-- Click **Sports** to acquire **All spots table**<br>
+- Click 'Sports' to acquire 'All spots table' <br>
 
 ![](git_images/image_23.png)<br>
 
-- Sort **All spots data** by clicking **Track ID**<br>
+- Sort 'All spots data' by clicking 'Track ID' <br>
 
 ![](git_images/image_24.png)<br>
 
-- Click **Export to CSV** to save the file into Analysis/Neuron 0/Mean_Intensity08.csv.
+- Click 'Export to CSV' to save the file into Analysis/Neuron 0/Mean_Intensity08.csv.
 
 ### 6. Clean the Exported CSV file
 
@@ -275,9 +272,9 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 - Open the Mean_Intensity08.csv, remove extra headers
 
-- Manually check each row. Use  **Track ID** and visualize same ID image in **Sport table** in Trackmate. Remove any incorrect or off-target tracks in csv file. 
+- Manually check each row. Use  'Track ID' and visualize same ID image in 'All sport table' in Trackmate. Remove any incorrect or off-target tracks in csv file. 
 
-- Sort the file by **POSITION_T**. 
+- Sort the file by 'POSITION_T'. 
 
 - Delete duplicates. 
 
@@ -310,7 +307,7 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 ![](git_images/image_27.png)<br> 
 
 
-⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.
+⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.<br>
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
 ## Step 5: Repeat the TrackMate analysis on all other stacks which you can see the target neuron across all times.
@@ -321,7 +318,7 @@ Make sure the following are true before running the analysis script:
 
 - All extra headers are removed from every Mean_Intensity##.csv file
 
-- **No duplicate POSITION_T** values exist in any Mean_Intensity##.csv
+- No duplicate POSITION_T values exist in any Mean_Intensity##.csv
 
 - background_i.xlsx contains a matching number of rows for each neuron's Z-slice .csv files
 
@@ -329,7 +326,7 @@ Make sure the following are true before running the analysis script:
 
 ## Step 7: Run `CIAanalysis_120s.py` to Calculate ΔF/Fmin
 
-Once all intensity files and background data are prepared and validated, use the Python script **CIAanalysis_120s.py** to compute **ΔF/Fmin** for each neuron and generate visual outputs.
+Once all intensity files and background data are prepared and validated, use the Python script 'CIAanalysis_120s.py' to compute 'ΔF/Fmin' for each neuron and generate visual outputs.
 
 ### 1. Open terminal or Pycharm
 
@@ -393,117 +390,86 @@ project/
 
 ## Step 8: Run `CITbind_dynamic.py`
 
-This step integrate the calcium activity (ΔF/Fmin) with the temperature log file collected during imaging. It generates a dual-axis plot that visualizes neuronal responses alongside temperature fluctuations over time.
+This step integrate the calcium activity (ΔF/Fmin) with the temperature log file collected during imaging. <br>
+It generates a dual-axis plot that visualizes neuronal responses alongside temperature fluctuations over time.<br>
 
 ### 1. Input Files before running the command
 
- Create a new folder named SampleXXX_date (e.g. DOWC001_20240820) 
+Create a new folder named SampleXXX_date (e.g. DOWC001_20240820) 
 
 Copy and paste in merged_data.csv from Analysis/results/merged_data.csv and temperature log
 
-project/
-
-│
-
-├── MAX_SampleXXX.tif            # Maximum projection TIFF for initial visualization
-
-├── Analog - <timestamp>.csv      # Temperature log recorded during imaging
-
-├── SampleXXX_stacks/           # 21 z-slice TIFFs (Z01 to Z21), each with 88 time points
-
-│   ├── Z01.tif
-
-│   └── ...
-
-├── Analysis/        #  
-
-├──SampleXXX_cbind/        #  
-
-│   ├── merged_data.csv
-
-│   └── Analog - <timestamp>.csv
-
+<pre> ```
+project/ 
+└──SampleXXX_date/        #  
+    ├── merged_data.csv
+    └── Analog - <timestamp>.csv
+``` </pre>
+      
 ### 2. Command 
 
 Run the following command in your terminal or PyCharm:
 
-
-```
-bash
-
-python CITbind_dynamic.py -i path/to/sample_folder -n
-
+```bash
+python CITbind_dynamic.py -i path/to/SampleXXX_date -n
 ```
 
+- Arguments
 
-**Arguments**
+  - -i: Path to the folder that contains:
 
--i: Path to the folder that contains:
+    - merged_data.csv
 
-merged_data.csv
+    - the corresponding temperature log file (e.g., Analog - 8-20-2024.csv)
 
-the corresponding temperature log file (e.g., Analog - 8-20-2024.csv)
-
--n: Number of neurons analyzed (i.e., number of individual neuron .csv files)
+  - -n: Number of neurons analyzed (i.e., number of individual neuron .csv files)
 
 ### 3. Output Files after running the command
 
-The script will generate:
+- The script will generate:
 
-Overlaid plot of ΔF/Fmin and temperature vs. time
+  - Overlaid plot of ΔF/Fmin and temperature vs. time
 
-CSV file combining temperature and calcium signal data
+  - CSV file combining temperature and calcium signal data
 
-├──SampleXXX_cbind/        #  
+<pre> ```
+└──SampleXXX_date/          
+    ├── SampleXXX_date.csv
+    ├── SampleXXX_date_cbind.csv
+    ├── SampleXXX_date_temp.csv
+    ├── SampleXXX_date_cbind0.pdf
+    └── SampleXXX_date_cbind1.pdf
+``` </pre>
 
-│   ├── SampleXXX.csv
-
-│   ├── SampleXXX_cbind.csv
-
-│   ├── SampleXXX_temp.csv
-
-│   ├── SampleXXX_cbind0.pdf
-
-│   └── SampleXXX_cbind1.pdf
-
-After run the script you will get the results for the current sample. Then continue to work on all other samples and past all the results into a summary table. 
+After run the script you will get the results for the current sample. Then continue to work on all other samples and sumarize all the results into csv files. <br>
 
 ## Step 9: Average Calcium Signals Across Samples Using df_temp_class.py
 
 This step computes the average ΔF/Fmin trace and generates group-level plots across multiple samples or neurons. This is useful for comparing replicates or summarizing class-wide data.
 
----
-
 ### 1. Required Input Files
 
-Create a new folder named ‘summary’ two files in the same directory:
+- Create a new folder named ‘summary’
+- Copy two files to 'summary' folder:
+  - Summary_df.csv — calcium traces from all neurons
+  - Summary_temperature.csv — corresponding temperature data for each sample
 
-Summary_df.csv — calcium traces from all neurons
-
-Summary_temperature.csv — corresponding temperature data for each sample
-
-Make sure:
-
-The first column name is Temperature, then continue with n1, n2, ... for summary_df.csv
-
-The first column name is Temperature, then continue with t1, t2, ... for summary_temperature.csv
+- Make sure:
+  - 'Summary_df.csv': the first column name is Temperature, then continue with n1, n2, ... 
+  - 'Summary_temperature.csv':The first column name is Temperature, then continue with t1, t2, ... 
 
 ### 2. Command
-
 Run the following command in your terminal or PyCharm:
 
-
+```bash
+python df_temp_class.py path/summary_df.csv path/summary_temperature.csv
 ```
-bash python df_temp_class.py path/summary_df.csv path/summary_temperature.csv
-
-```
-
 
 ### 3. Output
 
-The script will generate:
+- The script will generate:
 
-Summary plot of the group average ΔF/Fmin trace with SEM (error bars)
+  - Summary plot of the group average ΔF/Fmin trace with SEM (error bars)
 
-Average trace CSV summarizing ΔF/Fmin values across all neurons
+  - Average trace CSV summarizing ΔF/Fmin values across all neurons
 
