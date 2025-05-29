@@ -39,9 +39,9 @@ This pipeline is used to:
 ## Requirements
 To complete the analysis following softwares are required:
 
-### ImageJ (Fiji): (https://imagej.net/software/fiji/)
+- ImageJ (Fiji): (https://imagej.net/software/fiji/)
 
-### Python 3.6+: (https://www.python.org/)
+- Python 3.6+: (https://www.python.org/)
 
 ## Setup Instructions
 
