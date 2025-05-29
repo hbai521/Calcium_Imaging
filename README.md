@@ -200,7 +200,9 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
       
     - Neuron 1, start the analysis on ##_z10.tiff<br>
 
-![](git_images/image_15.png)<br>
+<p align="center">
+  <img src="git_images/image_15.png" alt="" width="700"/>
+</p>
 
 ### 2. Lauch TrackMate for Neuron 0
 
