@@ -264,9 +264,11 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 - Click **Sports** to acquire **All spots table**<br>
 
+![](git_images/image_23.png)<br>
+
 - Sort **All spots data** by clicking **Track ID**<br>
 
-![](git_images/image_23.png)<br>
+![](git_images/image_24.png)<br>
 
 - Click **Export to CSV** to save the file into Analysis/Neuron 0/Mean_Intensity08.csv.
 
@@ -290,7 +292,7 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 
 ### 1. Open `background_i.xlsx` located in `Analysis/` folder.<br>
 
-![](git_images/image_24.png)<br>
+![](git_images/image_25.png)<br> 
 
 ### 2. Measure Background Fluorescence in Fiji
 
@@ -304,11 +306,11 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 
 - Record five background values at t=12,24,36,48,60 into the corresponding column of `background_i.xlsx`.<br>
 
-![](git_images/image_25.png)<br> 
+![](git_images/image_26.png)<br> 
 
 - Copy and paste to background_i.xlsx.<br>
 
-![](git_images/image_26.png)<br> 
+![](git_images/image_27.png)<br> 
 
 
 ⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.
@@ -330,20 +332,20 @@ Make sure the following are true before running the analysis script:
 
 ## Step 7: Run `CIAanalysis_120s.py` to Calculate ΔF/Fmin
 
-Once all intensity files and background data are prepared and validated, use the Python script **CIAanalysis_120min.py** to compute **ΔF/Fmin** for each neuron and generate visual outputs.
+Once all intensity files and background data are prepared and validated, use the Python script **CIAanalysis_120s.py** to compute **ΔF/Fmin** for each neuron and generate visual outputs.
 
 ### 1. Open terminal or Pycharm
 
-Navigate to your project directory and activate your Python environment (if applicable).
+Navigate to the project directory and activate your Python environment (if applicable).
 
 ### 2. Command
 
-Run the following command from your terminal or within your PyCharm terminal:
+Run the following command from terminal or within PyCharm terminal:
 
 ```bash
-python CIAnalysis_120min.py -i path/to/Analysis --merge --cell_type DOWC
+python CIAnalysis_120s.py -i path/to/Analysis --merge --cell_type DOWC
 ```
-- Arguments
+- Script arguments
 
   - -i: Path to the Analysis/ folder
 
@@ -351,66 +353,50 @@ python CIAnalysis_120min.py -i path/to/Analysis --merge --cell_type DOWC
 
   - --cell_type: Adds a label (e.g., DOWC, DOCC) to outputs for reference
 
-### 3. Input Files before running the command
+### 3. Input Files before running CIAanalysis_120s.py
 
 <pre> ```
 project/
-│
-├── MAX_SampleXXX.tif            # Maximum projection TIFF for initial visualization
-├── Analog - <timestamp>.csv      # Temperature log recorded during imaging
-├── SampleXXX_stacks/           # 21 z-slice TIFFs (Z01 to Z21), each with 88 time points
-│   ├── Z01.tif
-│   └── ...
-├── Analysis/        # CIAanalysis_120min.py input
-│   ├── background_i.xlsx       
-│   ├── Neuron 0/
-│   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-│   │   └── ...
-│   ├── Neuron 1/
-│   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-│   │   └── ...
+└── Analysis/        # CIAanalysis_120min.py input
+    ├── background_i.xlsx       
+    ├── Neuron 0/
+    │   ├── Mean_Intensity##.csv      # file name should following the naming 
+    │   └── ...
+    └── Neuron 1/
+        ├── Mean_Intensity##.csv      # file name should following the naming 
+        └── ...
 ``` </pre>  
 
-### 4. Output Files after running CIAanalysis_120min.py
+### 4. Output Files after running CIAanalysis_120s.py
 
 After the script finishes, you will find the results in the following structure:
 
 <pre> ```
 project/
-│
-├── MAX_SampleXXX.tif            # Maximum projection TIFF for initial visualization
-├── Analog - <timestamp>.csv      # Temperature log recorded during imaging
-├── SampleXXX_stacks/           # 21 z-slice TIFFs (Z01 to Z21), each with 88 time points
-│   ├── Z01.tif
-│   └── ...
-├── Analysis/        #  CIAanalysis_120min.py input 
-│   ├── background_i.xlsx
-│   ├── background_list.csv       
-│   ├── Neuron 0/
-│   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-│   │   └── ...
-│   ├── Neuron 1/
-│   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-│   │   └── ...
-│   └── results/       # generated results folder
-│   │   ├──Neuron 0.csv       # ΔF/Fmin trace for Neuron 0
-│   │   ├──Neuron 1.csv
-│   │   ├──Neuron Plots/
-│   │   │  ├──Neuron 0.png       #plot for neuron 0
-│   │   │  └── Neuron 1.png
-│   │   ├──Merged_data/
-│   │   │  ├──merged_data.csv       #Combined ΔF/Fmin data
-│   │   │  └── Average_dF.png
+└── Analysis/        #  CIAanalysis_120min.py input 
+    ├── background_i.xlsx
+    ├── background_list.csv             
+    ├── Neuron 0/
+    │   ├── Mean_Intensity##.csv      # file name should following the naming 
+    │   └── ...
+    ├── Neuron 1/
+    │   ├── Mean_Intensity##.csv      # file name should following the naming 
+    │   └── ...
+    └── results/       # generated results folder
+        ├──Neuron 0.csv       # ΔF/Fmin trace for Neuron 0
+        ├──Neuron 1.csv
+        ├──Neuron Plots/
+        │  ├──Neuron 0.png       # plot for neuron 0
+        │  └── Neuron 1.png
+        └──Merged_data/
+           ├──merged_data.csv       # Combined ΔF/Fmin data
+           └── Average_dF.png
   
 ``` </pre>
-  
-Notes: Filenames like ‘Mean_Intensity03.csv’ must follow the exact naming rule with the two-digit z-slice number for the script to parse them correctly
 
-## Step 8: Run Align Calcium Signal with Temperature Using `CITbind_dynamic.py`
+## Step 8: Run `CITbind_dynamic.py`
 
-This step synchronizes the calcium activity (ΔF/Fmin) with the temperature log file collected during imaging. It generates a dual-axis plot that visualizes neuronal responses alongside temperature fluctuations over time.
-
----
+This step integrate the calcium activity (ΔF/Fmin) with the temperature log file collected during imaging. It generates a dual-axis plot that visualizes neuronal responses alongside temperature fluctuations over time.
 
 ### 1. Input Files before running the command
 
