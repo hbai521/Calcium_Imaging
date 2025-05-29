@@ -149,23 +149,29 @@ project/
 
 ### Step1: Visualizing Neuron Response in ImageJ
 
-Start the analysis by loading the **maximum projection image** into Fiji (ImageJ). This image helps you quickly access:
+- Start the analysis by loading the **maximum projection image** into Fiji (ImageJ). This image helps you quickly access:
 
-- overall fluorescence intensity
-- neuron number, shape, and locations
-- movement artifacts 
+  - overall fluorescence intensity
   
-It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-stack analysis.<br>
+  - neuron number, shape, and locations
+  
+  - movement artifacts 
+  
+- It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-stack analysis.<br>
 
-Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
+- Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
 ![DOWC_demo](git_images/image_13.png)
 
 ⚠️ Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
 
 - Loading the Image in Fiji
+  
   - Launch Fiji (ImageJ)
+    
   - Drag and drop MAX_DOWC001.tif into the Fiji window, or use File → Open... and select MAX_DOWC001.tif.
-  - Use the slider at the bottom to scroll through time frames.  
+    
+  - Use the slider at the bottom to scroll through time frames.
+    
   - Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
 
 <p align="center">
@@ -189,7 +195,9 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 - Select the strongest slice to start the analysis
 
   - For example:
+    
     - Neuron 0, start the analysis on ##_z08.tif
+      
     - Neuron 1, start the analysis on ##_z10.tiff<br>
 
 ![](git_images/image_15.png)<br>
@@ -216,7 +224,9 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 - Quality threshold: Start with 1.0 (reduce if needed)
 
 - Enable:
+  
   - Sub-pixel localization
+    
   - Pre-process with median filter
 
 - Click Preview to confirm that the detection (purple circle) fits the neuron correctly.<br>
@@ -435,12 +445,17 @@ This step computes the average ΔF/Fmin trace and generates group-level plots ac
 ### 1. Required Input Files
 
 - Create a new folder named ‘summary’
+  
 - Copy two files to 'summary' folder:
+  
   - Summary_df.csv — calcium traces from all neurons
+    
   - Summary_temperature.csv — corresponding temperature data for each sample
 
 - Make sure:
-  - 'Summary_df.csv': the first column name is Temperature, then continue with n1, n2, ... 
+  
+  - 'Summary_df.csv': the first column name is Temperature, then continue with n1, n2, ...
+    
   - 'Summary_temperature.csv':The first column name is Temperature, then continue with t1, t2, ... 
 
 ### 2. Command
