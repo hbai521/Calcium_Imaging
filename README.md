@@ -208,8 +208,8 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 3. Configure Detection Settings in TrackMate
 
-- Detector: Select 'DoG (Difference of Gaussian)'
-![](git_images/image_18.png)
+- Detector: Select 'DoG (Difference of Gaussian)'<br>
+![](git_images/image_18.png)<br>
 
 - Estimated object diameter: 22–36 pixels (based on neuron size)
 
@@ -221,7 +221,7 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 - Click Preview to confirm that the detection (purple circle) fits the neuron correctly.<br>
 
-![](git_images/image_19.png)
+![](git_images/image_19.png)<br>
 
 ### 4. Apply Spot Filters
 
