@@ -43,16 +43,6 @@ To complete the analysis following softwares are required:
 
 ### Python 3.6+: (https://www.python.org/)
 
-Install the Python packages using `pip`:
-
-- `pandas`
-- `numpy`
-- `matplotlib`
-
-```bash
-Pip install –r requirements.txt
-```
-
 ## Setup Instructions
 
 Setup your Python environment using either a terminal or an IDE like PyCharm.
