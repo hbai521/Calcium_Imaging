@@ -189,6 +189,7 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 3. Use the slider at the bottom to scroll through time frames.  
 
 4. Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.
+
 ![](git_images/image_14.png)
 
 ## Step 2: Extracting Fluorescence Intensity Using TrackMate
@@ -207,11 +208,10 @@ Open neighboring z-stacks at t=42 and compare fluorescence brightness.
 
 Select the strongest slice to start the analysis
 
-> - For example:
+- For example:
+  - Neuron 0, start the analysis on ##_z08.tif
+  - Neuron 1, start the analysis on ##_z10.tiff
 
-> - Neuron 0, start the analysis on ##_z08.tif
-
-> - Neuron 1, start the analysis on ##_z10.tiff
 ![](git_images/image_15.png)
 
 ### 2. Lauch TrackMate for Neuron 0
@@ -220,21 +220,22 @@ Open DOWCXXX_Z08.tif in Fiji
 
 Go to **Plugin/Tracking/TrackMate**.
 
-When prompted with "Z/T swapped?", click Yes.
+When prompted with **Z/T swapped?**, click **Yes**.
+![](git_images/image_16.png)
+![](git_images/image_17.png)
 
 ### 3. Configure Detection Settings in TrackMate
 
-Detector: Select DoG (Difference of Gaussian)
+- Detector: Select **DoG (Difference of Gaussian)**
+![](git_images/image_18.png)
 
- Estimated object diameter: 22–36 pixels (based on neuron size)
+- Estimated object diameter: 22–36 pixels (based on neuron size)
 
-Quality threshold: Start with 1.0 (reduce if needed)
+- Quality threshold: Start with 1.0 (reduce if needed)
 
-Enable:
-
-Sub-pixel localization
-
-Pre-process with median filter
+- Enable:
+  - Sub-pixel localization
+  - Pre-process with median filter
 
 Click Preview to confirm that the detection (purple circle) fits the neuron correctly.
 
