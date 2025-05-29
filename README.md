@@ -106,26 +106,26 @@ Download a complete set of demo data to test the analysis pipeline:
 
 🔗 [Google Drive:](https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
 
-### Contents
-- Warm Cell Calcium Imaging Dataset (`TrackMate`) 
+- Contents
+  - Warm Cell Calcium Imaging Dataset (`TrackMate`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
   A recorded calcium imaging dataset from warm cells, used for practicing fluorescence extraction using `TrackMate`.
 
-- Analysis Folder (`CIAnalysis_120s.py`) 
+  - Analysis Folder (`CIAnalysis_120s.py`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1jOz49KPs6MrifaxbZA1E5XVw5MqSgAFq?usp=drive_link)  
   A pre-configured `Analysis/` directory including `Neuron 0`, `Neuron 1`, and background files which is ready for testing `CIAnalysis_120s.py`.
 
-- Temperature-Aligned Demo (`CITbind_dynamic.py`) 
+  - Temperature-Aligned Demo (`CITbind_dynamic.py`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1Os7cZcNqwWUiyfrDLTFGgrDq9NQP3Y_W?usp=drive_link)  
   A sample set for running `CITbind_dynamic.py`, including calcium traces with temperature logs.
 
-- Summary Demo (`df_temp_class.py`) 
+  - Summary Demo (`df_temp_class.py`) 
   🔗 [Download from Google Drive](https://drive.google.com/drive/folders/1GgIKlhk0pE3DFm2LLXnqHcBZ7ylPUorC?usp=drive_link)  
   A demo dataset for testing `df_temp_class.py`, which summarizes group-level calcium responses.
 
 ✅ Use these datasets to follow the full analysis workflow without needing your own experimental data.
 
-## DOWC_demo file structure
+- DOWC_demo file structure
 
 Before starting the analysis, unzip <DOWC_demo> and make sure the files and folder structure match the following:
 
