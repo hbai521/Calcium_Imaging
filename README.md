@@ -67,6 +67,7 @@ python -m venv calcium_env
 ```bash
 # Active the environment for nmacOS/Linux:
 source calcium_env/bin/activate    
+```
 
 ```bash
 # Active the environment for Windows:
