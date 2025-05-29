@@ -174,7 +174,7 @@ Using the **maximum projection image** allows you:
   
 It serves as a first-hand visual screen for movement artifacts before conducting in-depth individual z-slice analysis.
 
-Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.
+Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
 ![DOWC_demo](git_images/image_13.png)
 
 ⚠️ Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
@@ -188,7 +188,7 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 
 3. Use the slider at the bottom to scroll through time frames.  
 
-4. Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.
+4. Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
 
 ![](git_images/image_14.png)
 
@@ -210,9 +210,9 @@ Select the strongest slice to start the analysis
 
 - For example:
   - Neuron 0, start the analysis on ##_z08.tif
-  - Neuron 1, start the analysis on ##_z10.tiff
+  - Neuron 1, start the analysis on ##_z10.tiff<br>
 
-![](git_images/image_15.png)
+![](git_images/image_15.png)<br>
 
 ### 2. Lauch TrackMate for Neuron 0
 
@@ -220,9 +220,9 @@ Open DOWCXXX_Z08.tif in Fiji
 
 Go to **Plugin/Tracking/TrackMate**.
 
-When prompted with **Z/T swapped?**, click **Yes**.
-![](git_images/image_16.png)
-![](git_images/image_17.png)
+When prompted with **Z/T swapped?**, click **Yes**.<br>
+![](git_images/image_16.png)<br>
+![](git_images/image_17.png)<br>
 
 ### 3. Configure Detection Settings in TrackMate
 
