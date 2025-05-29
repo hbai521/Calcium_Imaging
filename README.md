@@ -48,7 +48,7 @@ To complete the analysis following softwares are required:
 
 Setup Python environment using either a terminal or an IDE like PyCharm.
 
-- Terminal Setup
+- Terminal setup
 
 ```bash
 # Create a virtual environment
@@ -64,7 +64,7 @@ source calcium_env/bin/activate
 # Active the environment for Windows:
 calcium_env\Scripts\activate       
 ```
-- Pycharm Setup
+- Pycharm setup
 
   - Open PyCharm → 'New Project'
 
