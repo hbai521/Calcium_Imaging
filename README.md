@@ -186,7 +186,7 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 - Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
 
 <p align="center">
-  <img src="git_images/image_14.png" alt="">
+  <img src="git_images/image_14.png" alt="" width="500"/>
 </p>
 
 ## Step 2: Extracting Fluorescence Intensity Using TrackMate
