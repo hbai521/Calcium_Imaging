@@ -190,11 +190,11 @@ Adding annotations and screenshots is strongly recommended. It helps track neuro
 
 4. Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
 
-![](git_images/image_14.png)
+![](git_images/image_14.png)<br>
 
 ## Step 2: Extracting Fluorescence Intensity Using TrackMate
 
-This step use TrackMate in Fiji to extract fluorescence intensity over time for each neuron from selected z-slice TIFFs. We will use Neuron 0 as example to demonstrate z-stack analysis. 
+This step use TrackMate in Fiji to extract fluorescence intensity over time for each neuron from selected z-stack TIFFs. We will use Neuron 0 as example to demonstrate z-stack analysis. 
 
 ### 1. Find the brightest z-stack in Fiji
 
@@ -216,17 +216,20 @@ Select the strongest slice to start the analysis
 
 ### 2. Lauch TrackMate for Neuron 0
 
-Open DOWCXXX_Z08.tif in Fiji
+Open DOWC001_Z08.tif in Fiji
 
-Go to **Plugin/Tracking/TrackMate**.
+Go to Plugin/Tracking/TrackMate.
 
 When prompted with **Z/T swapped?**, click **Yes**.<br>
+
 ![](git_images/image_16.png)<br>
+
 ![](git_images/image_17.png)<br>
 
 ### 3. Configure Detection Settings in TrackMate
 
 - Detector: Select **DoG (Difference of Gaussian)**
+- 
 ![](git_images/image_18.png)
 
 - Estimated object diameter: 22–36 pixels (based on neuron size)
@@ -237,66 +240,78 @@ When prompted with **Z/T swapped?**, click **Yes**.<br>
   - Sub-pixel localization
   - Pre-process with median filter
 
-Click Preview to confirm that the detection (purple circle) fits the neuron correctly.
+Click Preview to confirm that the detection (purple circle) fits the neuron correctly.<br>
+
+![](git_images/image_19.png)
 
 ### 4. Apply Spot Filters
 
-Use **‘Set filters on spots’** to remove irrelevant signals
+- Use **Set filters on spots** to remove irrelevant signals
 
-Filter by **’X/Y position’** to isolate Neuron 0.
+- Filter by **X/Y position** to isolate Neuron 0.
 
-Use **Preview** to ensure only the correct neuron is selected.
+- Use **Preview** to ensure only the correct neuron is selected.<br>
 
-Select Simple LAP tracker with following settings.
+![](git_images/image_20.png)<br>
+
+- Select **Simple LAP tracker** with following settings.<br>
+
+![](git_images/image_21.png)<br>
 
 ### 5. Export Intensity Data
 
-Click Sports to acquire ‘All spots table’
+- Click **Sports** to acquire **All spots table**<br>
 
-Sort ‘All spots data ‘by clicking Track ID’
+![](git_images/image_22.png)<br>
 
-Click “Export to CSV” to save the file into Analysis/Neuron 0/Mean_Intensity08.csv.
+- Sort **All spots data** by clicking **Track ID**<br>
+
+![](git_images/image_23.png)<br>
+
+- Click **Export to CSV** to save the file into Analysis/Neuron 0/Mean_Intensity08.csv.
 
 ### 6. Clean the Exported CSV file
 
-**Notes: Accurate cleaning at this stage is essential for proper ΔF/Fmin calculation and downstream analysis in Python.**
+⚠️ Notes: Accurate cleaning at this stage is essential for proper ΔF/Fmin calculation and downstream analysis in Python.
 
-Open the Mean_Intensity08.csv, remove extra headers
+- Open the Mean_Intensity08.csv, remove extra headers
 
-Manually check each row. Use  **‘Track ID’** and visualize same ID image in ‘Sport table’ in Trackmate. Remove any incorrect or off-target tracks in csv file. 
+- Manually check each row. Use  **Track ID** and visualize same ID image in **Sport table** in Trackmate. Remove any incorrect or off-target tracks in csv file. 
 
-Sort the file by **’POSITION_T’**. 
+- Sort the file by **POSITION_T**. 
 
-Delete duplicates. 
+- Delete duplicates. 
 
-Save the cleaned csv.
+- Save the cleaned csv.
 
 ## Step 3: Background Correction
 
-Before calculating ΔF/Fmin, five background fluorescence data must be recorded for each Z-slice used in analysis.
+Before calculating ΔF/Fmin, five background fluorescence data must be recorded for each Z-stack used in analysis.
 
-### 1. Open `background_i.xlsx` located in `Analysis/` folder.
+### 1. Open `background_i.xlsx` located in `Analysis/` folder.<br>
+
+![](git_images/image_24.png)<br>
 
 ### 2. Measure Background Fluorescence in Fiji
 
-Go to t=12,24,36,48,60.
+- Go to t=12,24,36,48,60.
 
-Hold shift and click the Oval tool in Fiji
+- Hold shift and press the Oval tool in Fiji
 
-Draw ‘circular ROI’ on a background area close to target neuron using the same diameter as neuron cell. 
+- Draw ‘circular ROI’ on a background area close to target neuron using the same diameter as neuron cell. 
 
-Press M to obtain the intensity value
+- Press M to obtain the intensity value
 
-Record five background values at t=12,24,36,48,60 into the corresponding column of `background_i.xlsx`.
+- Record five background values at t=12,24,36,48,60 into the corresponding column of `background_i.xlsx`.<br>
 
- 
+![](git_images/image_25.png)<br> 
 
-Copy and paste to background_i.xlsx.
+Copy and paste to background_i.xlsx.<br>
 
-**Important notes:**
+![](git_images/image_26.png)<br> 
 
-The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.
 
+⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
 ## Step 5: Work on the other stacks which you can see the target neuron.
@@ -307,17 +322,17 @@ Repeat the TrackMate analysis (Steps 2–4) for all Z-slices where the neuron is
 
 Make sure the following are true before running the analysis script:
 
-### All extra headers are removed from every Mean_Intensity##.csv file
+- All extra headers are removed from every Mean_Intensity##.csv file
 
-### No duplicate POSITION_T values exist in any Mean_Intensity##.csv
+- **No duplicate POSITION_T** values exist in any Mean_Intensity##.csv
 
-### background_i.xlsx contains a matching number of rows for each neuron's Z-slice .csv files
+- background_i.xlsx contains a matching number of rows for each neuron's Z-slice .csv files
 
- Inconsistencies here will result in Python script errors or inaccurate ΔF/Fmin values.
+- Inconsistencies here will result in Python script errors or inaccurate ΔF/Fmin values.
 
 ## Step 7: Run `CIAanalysis_120min.py` to Calculate ΔF/Fmin
 
-Once all intensity files and background data are prepared and validated, use the Python script `CIAanalysis_120min.py` to compute ΔF/Fmin for each neuron and generate visual outputs.
+Once all intensity files and background data are prepared and validated, use the Python script **CIAanalysis_120min.py** to compute **ΔF/Fmin** for each neuron and generate visual outputs.
 
 ### 1. Open terminal or Pycharm
 
@@ -327,56 +342,37 @@ Navigate to your project directory and activate your Python environment (if appl
 
 Run the following command from your terminal or within your PyCharm terminal:
 
-
-```
-bash
-
+```bash
 python CIAnalysis_120min.py -i path/to/Analysis --merge --cell_type DOWC
-
 ```
+- Arguments
 
+  - -i: Path to the Analysis/ folder
 
-**Arguments**
+  - --merge: (optional) Combines results from all neurons into a summary
 
--i: Path to the Analysis/ folder
+  - --cell_type: Adds a label (e.g., DOWC, DOCC) to outputs for reference
 
---merge: (optional) Combines results from all neurons into a summary
-
---cell_type: Adds a label (e.g., DOWC, DOCC) to outputs for reference
-
-###3. Input Files before running the command
-
+### 3. Input Files before running the command
+<pre> ```
 project/
-
 │
-
 ├── MAX_SampleXXX.tif            # Maximum projection TIFF for initial visualization
-
 ├── Analog - <timestamp>.csv      # Temperature log recorded during imaging
-
 ├── SampleXXX_stacks/           # 21 z-slice TIFFs (Z01 to Z21), each with 88 time points
-
 │   ├── Z01.tif
-
 │   └── ...
-
 ├── Analysis/        # CIAanalysis_120min.py input
-
 │   ├── background_i.xlsx       
-
 │   ├── Neuron 0/
-
 │   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-
 │   │   └── ...
-
 │   ├── Neuron 1/
-
 │   │   ├── Mean_Intensity##.csv      # file name should following the naming 
-
 │   │   └── ...
+``` </pre>  
 
-###4. Output Files after running CIAanalysis_120min.py
+### 4. Output Files after running CIAanalysis_120min.py
 
 After the script finishes, you will find the results in the following structure:
 
