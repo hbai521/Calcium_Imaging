@@ -24,7 +24,7 @@
 
 This repository provides Python scripts and a complete data analysis pipeline for 3D calcium imaging of thermosensory neurons in *Drosophila* larvae. Designed as an instructional resource, the pipeline offers step-by-step guidance to analyze real calcium imaging datasets with minimal coding experience.
 
-This pipeline is used to:
+### This pipeline is used to:
 
 - Extract neuron fluorescence intensities from Z-stack TIFFs using TrackMate in Fiji/ImageJ.
 
@@ -35,6 +35,9 @@ This pipeline is used to:
 - Visualize average responses.
 
 ✅ No prior programming experience is required 
+
+### Localization of two warm cells in Drosophila Larva
+
 
 ## Requirements
 
