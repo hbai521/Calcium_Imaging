@@ -151,7 +151,7 @@ project/
      └── Neuron 1/    
 ``` </pre>
 
-⚠️ Notes: Keep file names and folder structure exactly as recommended. The analysis scripts rely on this structure to locate and process data correctly. Incorrect naming or layout will likely result in file-not-found or parsing errors during execution.             
+Notes: Keep file names and folder structure exactly as recommended. The analysis scripts rely on this structure to locate and process data correctly. Incorrect naming or layout will likely result in file-not-found or parsing errors during execution.             
 
 ## Workflow
 
@@ -165,10 +165,10 @@ project/
   
   - movement artifacts 
 
-⚠️ Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
+Notes: Adding annotations and screenshots is strongly recommended. It helps track neuron position for later individual z-slice analysis.<br>
 ![DOWC_demo](git_images/image_13.png)
 
-⚠️ Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
+Notes: Large movement prevents TrackMate tracking, and manual extraction of intensity values will be necessary.
 
 - Loading the Image in Fiji
   
@@ -249,6 +249,14 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 - Use `Preview` to ensure only the correct neuron is selected.<br>
 
+- After setting the filters, carefully inspect the purple tracking circles across all time points.
+  
+  - Make sure the full response is captured, from the start of fluorescence increase to the return to baseline.
+    
+  - No timepoints should be missing once the response begins.
+    
+  - If any frames are skipped or the tracking is incomplete, adjust the filters until continuous tracking is achieved.
+
 ![](git_images/image_20.png)<br>
 
 - Select `Simple LAP tracker` with following settings.<br>
@@ -271,7 +279,7 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
 
 ### 6. Clean the Exported CSV file
 
-⚠️ Notes: Accurate cleaning at this stage is essential for proper ΔF/Fmin calculation and downstream analysis in Python.
+Notes: Accurate cleaning at this stage is essential for proper ΔF/Fmin calculation and downstream analysis in Python.
 
 - Open the Mean_Intensity08.csv, remove extra headers
 
@@ -310,7 +318,7 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 ![](git_images/image_27.png)<br> 
 
 
-⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.<br>
+Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.<br>
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
 ## Step 5: Work on Additional z-stacks
