@@ -74,13 +74,13 @@ calcium_env\Scripts\activate
 ```
 - Pycharm setup
 
-  - Open PyCharm → 'New Project'
+  - Open PyCharm → `New Project`
 
-  - Select 'New environment using venv'
+  - Select `New environment using venv`
 
   - Set the folder name (e.g., calcium_env)
 
-  - Click Create to generate the environment
+  - Click `Create` to generate the environment
 
 ✅ Once the environment is ready, install the required Python packages.
 
