@@ -320,7 +320,7 @@ Make sure the following are true before running the analysis script:
 
 - Inconsistencies here will result in Python script errors or inaccurate ΔF/Fmin values.
 
-## Step 7: Run `CIAanalysis_120s.py` to Calculate ΔF/Fmin
+## Step 7: Calculate ΔF/Fmin
 
 Once all intensity files and background data are prepared and validated, use the Python script 'CIAanalysis_120s.py' to compute 'ΔF/Fmin' for each neuron and generate visual outputs.
 
