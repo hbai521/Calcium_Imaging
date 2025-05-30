@@ -36,8 +36,13 @@ This repository provides Python scripts and a complete data analysis pipeline fo
 
 ✅ No prior programming experience is required 
 
-### Localization of two warm cells in Drosophila Larva
+### Localization of two warm cells in *Drosophila* Larvae
 
+<p align="">
+  <img src="git_images/image_12.png" alt="" width="300"/>
+</p>
+
+Dorsal organ warm cells (DOWCs) are thermosensory neurons located in the dorsal organ ganglion of *Drosophila* larvae. These neurons are activated by warming and mediate warm avaidance behavior. Using the 'Ir68a-Gal4 > UAS-GCaMP6m' system, DOWCs can be specifically labeled and visualized through calcium imaging.
 
 ## Requirements
 
