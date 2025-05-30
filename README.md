@@ -305,7 +305,7 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 ⚠️ Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.<br>
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
-## Step 5: Repeat the TrackMate Analysis
+## Step 5: Work on Additional z-stacks
 Repeat the analysis from step 2-4 on all other z-stacks.
 
 ## Step 6: Checklist Before Running Python
