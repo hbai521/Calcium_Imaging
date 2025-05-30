@@ -377,10 +377,10 @@ project/
         ├──Neuron 1.csv
         ├──Neuron Plots/
         │  ├──Neuron 0.png       # plot for neuron 0
-        │  └── Neuron 1.png
+        │  └──Neuron 1.png
         └──Merged_data/
            ├──merged_data.csv       # Combined ΔF/Fmin data
-           └── Average_dF.png
+           └──Average_dF.png
   
 ``` </pre>
 
