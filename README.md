@@ -174,11 +174,11 @@ Notes: Large movement prevents TrackMate tracking, and manual extraction of inte
   
   - Launch Fiji (ImageJ)
     
-  - Drag and drop MAX_DOWC001.tif into the Fiji window, or use File → Open... and select MAX_DOWC001.tif.
+  - Drag and drop `MAX_DOWC001.tif` into the Fiji window, or use `File → Open`... and select `MAX_DOWC001.tif`.
     
   - Use the slider at the bottom to scroll through time frames.
     
-  - Adjust brightness Use Brightness/Contrast or Ctrl + Shift + C on windows Command + Shift + C on macOS.<br>
+  - Adjust brightness Use `Brightness/Contrast` or `Ctrl + Shift + C` on windows `Command + Shift + C` on macOS.<br>
 
 <p align="center">
   <img src="git_images/image_14.png" alt="" width="600"/>
