@@ -132,7 +132,7 @@ Download a complete set of demo data to test the analysis pipeline:
 🔗 [Google Drive:](https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
 
 <p align="">
-  <img src="git_images/image_10.png" alt="" width="600"/>
+  <img src="git_images/image_10.png">
 </p>
 
 - Contents
