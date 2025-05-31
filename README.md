@@ -44,13 +44,30 @@ This repository provides Python scripts and a complete data analysis pipeline fo
 
 Dorsal organ warm cells (DOWCs) are thermosensory neurons located in the dorsal organ ganglion of *Drosophila* larvae. These neurons are activated by warming and mediate warm avaidance behavior. Using the *Ir68a-Gal4 > UAS-GCaMP6m* system, DOWCs can be specifically labeled and visualized through calcium imaging.
 
-## Requirements
+## Requirements and Preperation
 
-To complete the analysis following softwares are required:
+To complete this analysis following softwares are required:
 
-- ImageJ (Fiji): (https://imagej.net/software/fiji/)
+- **ImageJ (Fiji)**: (https://imagej.net/software/fiji/). For this project, download the JRE version. (JDK version is designed for developers e.g., writing plugins or scripting Fiji in Java), 
+- **Python 3.6+**: (https://www.python.org/).
 
-- Python 3.6+: (https://www.python.org/)
+### Project Folder Setup
+
+To ensure proper file organization and avoid path-related errors:
+
+- Create a new folder on your computer (e.g. Desktop) named:
+  `CI_project` (e.g. Desktop/CI_project)
+
+- Inside this folder, you will:
+  
+  - Save and extract the **demo datasets**
+    
+  - Create your **Python virtual environment**
+    
+  - Clone or download the **GitHub repository** to **Python virtual environment**
+
+> You can rename or relocate this folder as needed, but ensure all paths used in the scripts remain consistent.
+
 
 ## Setup Instructions
 
@@ -84,13 +101,6 @@ calcium_env\Scripts\activate
 
 ✅ Once the environment is ready, install the required Python packages.
 
-## Install Required Packages
-
-```bash
-pip install -r requirements.txt
-```
-This will install essential packages like pandas, numpy, and matplotlib.
-
 ## Clone or Download This Repository 
 
 Clone or download this repository into the same directory as your virtual environment or your PyCharm project folder.
@@ -109,10 +119,21 @@ git clone https://github.com/<your-username>/<your-repo-name>.git
 
   - Unzip the folder into your calcium_env (or PyCharm project) directory
 
+## Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+This will install essential packages like pandas, numpy, and matplotlib.
+
 ## Download Demo data
 Download a complete set of demo data to test the analysis pipeline:
 
 🔗 [Google Drive:](https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
+
+<p align="">
+  <img src="git_images/image_10.png" alt="" width="600"/>
+</p>
 
 - Contents
   - Warm Cell Calcium Imaging Dataset (`TrackMate`) 
