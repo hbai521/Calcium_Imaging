@@ -66,10 +66,14 @@ To ensure proper file organization and avoid path-related errors:
     
   - Clone or download the **GitHub repository** to **Python virtual environment**
 
+(This is a example of what `CI_project` folder look like after extracting demo data and save the repository)
+
+![](git_images/image_09.png)<br>
+
 > You can rename or relocate this folder as needed, but ensure all paths used in the scripts remain consistent.
 
 
-## Setup Instructions
+## Setup Python
 
 Setup Python environment using either a terminal or an IDE like PyCharm.
 
@@ -77,17 +81,17 @@ Setup Python environment using either a terminal or an IDE like PyCharm.
 
 ```bash
 # Create a virtual environment
-python -m venv calcium_env
+python -m venv Desktop/CI_project/Python
 ```
 
 ```bash
 # Active the environment for nmacOS/Linux:
-source calcium_env/bin/activate    
+source Desktop/CI_project/Python/bin/activate    
 ```
 
 ```bash
 # Active the environment for Windows:
-calcium_env\Scripts\activate       
+Desktop/CI_project/Python/Scripts/activate       
 ```
 - Pycharm setup
 
@@ -95,11 +99,13 @@ calcium_env\Scripts\activate
 
   - Select `New environment using venv`
 
-  - Set the folder name (e.g., calcium_env)
+  - Set the folder name (e.g., Python)
 
   - Click `Create` to generate the environment
 
-✅ Once the environment is ready, install the required Python packages.
+![](git_images/image_11.png)<br>
+
+✅ Once the environment is ready, go to next step.
 
 ## Clone or Download This Repository 
 
@@ -117,7 +123,11 @@ git clone https://github.com/<your-username>/<your-repo-name>.git
 
   - Select "Download ZIP"
 
-  - Unzip the folder into your calcium_env (or PyCharm project) directory
+  - Unzip the folder into your PyCharm project (Desktop/CI_project/Python) directory
+
+  After correct placing your github scripts, the pycharm should look like following:
+
+![](git_images/image_08.png)<br> 
 
 ## Install Required Packages
 
@@ -131,9 +141,7 @@ Download a complete set of demo data to test the analysis pipeline:
 
 🔗 [Google Drive:](https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
 
-<p align="">
-  <img src="git_images/image_10.png">
-</p>
+![](git_images/image_10.png)<br>
 
 - Contents
   - DOWC_demo (input for `TrackMate`) 
