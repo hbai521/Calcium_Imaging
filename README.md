@@ -19,7 +19,7 @@
   - [Step 6: Checklist Before Running Python](#step-6-checklist-before-running-python)
   - [Step 7: Calculate ΔF/Fmin](#step-7-calculate-Δf/fmin)
   - [Step 8: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
-  - [Step 9: Summary Calcium reponses Across Samples](#step-9-summary-calcium-responses-across-samples)
+  - [Step 9: Summary Calcium Reponses across Samples](#step-9-summary-calcium-responses-across-samples)
 
 ## Overview 
 
@@ -67,7 +67,7 @@ To ensure proper file organization and avoid path-related errors:
     
   - Clone or download the **GitHub repository** to **Python virtual environment**
 
-(This is a example of what `CI_project` folder look like after extracting demo data and save the repository)
+(This is an example of what `CI_project` folder look like after extracting demo data and save the repository)
 
 <p align="">
   <img src="git_images/image_09.png" alt="" width="300"/>
