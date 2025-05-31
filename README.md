@@ -3,12 +3,13 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Requirements](#requirements)
+- [Requirements and Preparation](#requirements-and-preperation)
 - [Setup Instructions](#setup-instructions)
-  - [Set Up a Python Virtual Environment](#set-up-a-python-virtual-environment)
-  - [Install Required Packages](#install-required-packages)
+  - [Project Folder Setup](#project-folder-setup)
+  - [Set Up Python](#set-up-python)
   - [Clone or Download This Repository](#clone-or-download-this-repository)
-- [Input File Organization](#input-file-organization)
+  - [Install Required Packages](#install-required-packages)
+  - [Download Demo Data](#download-demo-data)
 - [Workflow](#workflow)
   - [Step 1: Visualizing Neuron Response in ImageJ](#step-1-visualizing-neuron-response-in-imagej)
   - [Step 2: Extracting Fluorescence Intensity Using TrackMate](#step-2-extracting-fluorescence-intensity-using-trackmate)
@@ -69,11 +70,16 @@ To ensure proper file organization and avoid path-related errors:
 (This is a example of what `CI_project` folder look like after extracting demo data and save the repository)
 
 ![](git_images/image_09.png)<br>
+<p align="">
+  <img src="git_images/image_09.png" alt="" width="300"/>
+</p>
+
 
 > You can rename or relocate this folder as needed, but ensure all paths used in the scripts remain consistent.
 
+## Setup Instructions
 
-## Setup Python
+### Setup Python
 
 Setup Python environment using either a terminal or an IDE like PyCharm.
 
@@ -107,7 +113,7 @@ Desktop/CI_project/Python/Scripts/activate
 
 ✅ Once the environment is ready, go to next step.
 
-## Clone or Download This Repository 
+### Clone or Download This Repository 
 
 Clone or download this repository into the same directory as your virtual environment or your PyCharm project folder.
 
@@ -129,14 +135,14 @@ git clone https://github.com/<your-username>/<your-repo-name>.git
 
 ![](git_images/image_08.png)<br> 
 
-## Install Required Packages
+### Install Required Packages
 
 ```bash
 pip install -r requirements.txt
 ```
 This will install essential packages like pandas, numpy, and matplotlib.
 
-## Download Demo data
+### Download Demo Data
 Download a complete set of demo data to test the analysis pipeline:
 
 🔗 [Google Drive:](https://drive.google.com/drive/folders/1SJ6MvMnjAEGj97EMcBNw9BtBAGIzd_ie?usp=sharing)
