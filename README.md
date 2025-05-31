@@ -133,7 +133,7 @@ git clone https://github.com/<your-username>/<your-repo-name>.git
   After correct placing your github scripts, the pycharm should look like following:
 
 <p align="">
-  <img src="git_images/image_08.png" alt="" width="500"/>
+  <img src="git_images/image_07.png" alt="" width="500"/>
 </p>
 
 ### Install Required Packages
