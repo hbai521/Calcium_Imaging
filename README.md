@@ -69,7 +69,6 @@ To ensure proper file organization and avoid path-related errors:
 
 (This is a example of what `CI_project` folder look like after extracting demo data and save the repository)
 
-![](git_images/image_09.png)<br>
 <p align="">
   <img src="git_images/image_09.png" alt="" width="300"/>
 </p>
@@ -133,7 +132,9 @@ git clone https://github.com/<your-username>/<your-repo-name>.git
 
   After correct placing your github scripts, the pycharm should look like following:
 
-![](git_images/image_08.png)<br> 
+<p align="">
+  <img src="git_images/image_08.png" alt="" width="300"/>
+</p>
 
 ### Install Required Packages
 
@@ -215,7 +216,7 @@ Notes: Large movement prevents TrackMate tracking, and manual extraction of inte
     
   - Adjust brightness Use `Brightness/Contrast` or `Ctrl + Shift + C` on windows `Command + Shift + C` on macOS.<br>
 
-<p align="center">
+<p align="">
   <img src="git_images/image_14.png" alt="" width="600"/>
 </p>
 
@@ -241,7 +242,7 @@ This step use TrackMate in Fiji to extract fluorescence intensity over time for 
       
     - Neuron 1, start the analysis on ##_z10.tiff<br>
 
-<p align="center">
+<p align="">
   <img src="git_images/image_15.png" alt="" width="700"/>
 </p>
 
