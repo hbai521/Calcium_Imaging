@@ -61,7 +61,7 @@ To ensure proper file organization and avoid path-related errors:
 
 - Inside this folder, you will:
   
-  - Save and extract the **demo datasets**
+  - Save and the **demo datasets**
     
   - Create your **Python virtual environment**
     
