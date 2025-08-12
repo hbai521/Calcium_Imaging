@@ -1,13 +1,13 @@
-# Calcium Imaging data analysis on *Drosophila* larval thermal sensing neurons ##
+# Calcium Imaging Data Analysis on *Drosophila* Larval Thermal Sensing Neurons ##
 
 ## Table of Contents
 
 - [Overview](#overview)
 - [Requirements and Preparation](#requirements-and-preperation)
 - [Setup Instructions](#setup-instructions)
-  - [Project Folder Setup](#project-folder-setup)
+  - [Project Folder](#project-folder-setup)
   - [Set Up Python](#set-up-python)
-  - [Clone or Download This Repository](#clone-or-download-this-repository)
+  - [Clone or Download Repository](#clone-or-download-this-repository)
   - [Install Required Packages](#install-required-packages)
   - [Download Demo Data](#download-demo-data)
 - [Workflow](#workflow)
@@ -19,7 +19,7 @@
   - [Step 6: Checklist Before Running Python](#step-6-checklist-before-running-python)
   - [Step 7: Calculate ΔF/Fmin](#step-7-calculate-Δf/fmin)
   - [Step 8: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
-  - [Step 9: Summary Calcium Reponses across Samples](#step-9-summary-calcium-responses-across-samples)
+  - [Step 9: Summarize Calcium Reponses Across Samples](#step-9-summary-calcium-responses-across-samples)
 
 ## Overview 
 
@@ -52,7 +52,7 @@ To complete this analysis following softwares are required:
 - **ImageJ (Fiji)**: (https://imagej.net/software/fiji/). For this project, download the JRE version. (JDK version is designed for developers e.g., writing plugins or scripting Fiji in Java), 
 - **Python 3.6+**: (https://www.python.org/).
 
-### Project Folder Setup
+### Project Folder
 
 To ensure proper file organization and avoid path-related errors:
 
@@ -112,7 +112,7 @@ Desktop/CI_project/Python/Scripts/activate
 
 ✅ Once the environment is ready, go to next step.
 
-### Clone or Download This Repository 
+### Clone or Download Repository 
 
 Clone or download this repository into the same directory as your virtual environment or your PyCharm project folder.
 
@@ -224,7 +224,7 @@ Notes: Large movement prevents TrackMate tracking, and manual extraction of inte
 
 This step use TrackMate in Fiji to extract fluorescence intensity over time for each neuron from selected z-stack TIFFs. We will use Neuron 0 as example to demonstrate z-stack analysis. 
 
-### 1. Start with the brightest z-stack in Fiji
+### 1. Start with the Brightest Z-stack in Fiji
 
 - Go to ‘SampleXXX_stack/’ (e.g. DOWC_demp/DOWC001_stack) folder and open a mid-plane TIFF (e.g. DOWC_demp/DOWC001_stack/DOWC_Z10.tif)
 
@@ -357,7 +357,7 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.<br>
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
-## Step 5: Work on Additional z-stacks
+## Step 5: Work on Additional Z-stacks
 Repeat the analysis from step 2-4 on all other z-stacks.
 
 ## Step 6: Checklist Before Running Python
@@ -376,7 +376,7 @@ Make sure the following are true before running the analysis script:
 
 Once all intensity files and background data are prepared and validated, use the Python script 'CIAanalysis_120s.py' to compute 'ΔF/Fmin' for each neuron and generate visual outputs.
 
-### 1. Open terminal or Pycharm
+### 1. Open Terminal or Pycharm
 
 Navigate to the project directory and activate your Python environment (if applicable).
 
@@ -395,7 +395,7 @@ python CIAnalysis_120s.py -i path/to/Analysis --merge --cell_type DOWC
 
   - --cell_type: adds a label (e.g., DOWC, DOCC) to outputs for reference
 
-### 3. Input files before running CIAanalysis_120s.py
+### 3. Input Files Before Running CIAanalysis_120s.py
 
 <pre> ```
 project/
@@ -409,7 +409,7 @@ project/
         └── ...
 ``` </pre>  
 
-### 4. Output files after running CIAanalysis_120s.py
+### 4. Output Files After Running CIAanalysis_120s.py
 
 After the script finishes, you will find the results in the following structure:
 
@@ -441,7 +441,7 @@ project/
 This step integrate the calcium activity (ΔF/Fmin) with the temperature log file collected during imaging. <br>
 It generates a dual-axis plot that visualizes neuronal responses alongside temperature fluctuations over time.<br>
 
-### 1. Input files before running the command
+### 1. Input Files Before Running the Command
 
 Create a new folder named SampleXXX_date (e.g. DOWC001_20240820) 
 
@@ -472,7 +472,7 @@ python CITbind_dynamic.py -i path/to/SampleXXX_date -n
 
   - -n: Number of neurons analyzed (i.e., number of individual neuron .csv files)
 
-### 3. Output files after running the command
+### 3. Output Files After Running the Command
 
 - The script will generate:
 
@@ -495,7 +495,7 @@ After run the script you will get the results for the current sample. Then conti
 
 This step computes the average ΔF/Fmin trace and generates group-level plots across multiple samples or neurons. This is useful for comparing replicates or summarizing class-wide data.
 
-### 1. Required input files
+### 1. Required Input Files
 
 - Create a new folder named ‘summary’
   
