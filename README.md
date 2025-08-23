@@ -1,4 +1,4 @@
-# Calcium Imaging Data Analysis on *Drosophila* Larval Thermal Sensing Neurons ##
+# Calcium Imaging Analysis Scripts and User Manual ##
 
 ## Table of Contents
 
