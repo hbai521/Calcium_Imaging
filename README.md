@@ -14,12 +14,11 @@
   - [Step 1: Visualizing Neuron Response in ImageJ](#step-1-visualizing-neuron-response-in-imagej)
   - [Step 2: Extracting Fluorescence Intensity Using TrackMate](#step-2-extracting-fluorescence-intensity-using-trackmate)
   - [Step 3: Background Correction](#step-3-background-correction)
-  - [Step 4: Clean the Exported CSV File](#step-4-clean-the-exported-csv-file)
-  - [Step 5: Work on Additional Z-stacks](#step-5-work-on-additional-z-stacks)
-  - [Step 6: Checklist Before Running Python](#step-6-checklist-before-running-python)
-  - [Step 7: Calculate ΔF/Fmin](#step-7-calculate-Δf/fmin)
-  - [Step 8: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
-  - [Step 9: Summarize Calcium Reponses Across Samples](#step-9-summary-calcium-responses-across-samples)
+  - [Step 4: Work on Additional Z-stacks](#step-5-work-on-additional-z-stacks)
+  - [Step 5: Checklist Before Running Python](#step-6-checklist-before-running-python)
+  - [Step 6: Calculate ΔF/Fmin](#step-7-calculate-Δf/fmin)
+  - [Step 7: Align Calcium Signal with Temperature](#step-8-align-calcium-signal-with-temperature)
+  - [Step 8: Summarize Calcium Reponses Across Samples](#step-9-summary-calcium-responses-across-samples)
 
 ## Overview 
 
