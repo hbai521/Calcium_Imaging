@@ -356,10 +356,10 @@ Before calculating ΔF/Fmin, five background fluorescence data must be recorded 
 Notes: The number of background values recorded must exactly match the number of Mean_Intensity##.csv files for each neuron.<br>
 For example, if Neuron 0 has cleaned data from Z05 to Z11, there should be seven sets of five background values for Neuron 0 in background_i.xlsx.
 
-## Step 5: Work on Additional Z-stacks
+## Step 4: Work on Additional Z-stacks
 Repeat the analysis from step 2-4 on all other z-stacks.
 
-## Step 6: Checklist Before Running Python
+## Step 5: Checklist Before Running Python
 
 Make sure the following are true before running the analysis script:
 
@@ -371,7 +371,7 @@ Make sure the following are true before running the analysis script:
 
 - Inconsistencies here will result in Python script errors or inaccurate ΔF/Fmin values.
 
-## Step 7: Calculate ΔF/Fmin
+## Step 6: Calculate ΔF/Fmin
 
 Once all intensity files and background data are prepared and validated, use the Python script 'CIAanalysis_120s.py' to compute 'ΔF/Fmin' for each neuron and generate visual outputs.
 
@@ -435,7 +435,7 @@ project/
   
 ``` </pre>
 
-## Step 8: Run `CITbind_dynamic.py`
+## Step 7: Run `CITbind_dynamic.py`
 
 This step integrate the calcium activity (ΔF/Fmin) with the temperature log file collected during imaging. <br>
 It generates a dual-axis plot that visualizes neuronal responses alongside temperature fluctuations over time.<br>
